@@ -36,7 +36,7 @@ def HeunSolver(t, delt, S0, f, parameters, num):
         S[i] = S[i-1] + 0.5*delt*(F1 + Fp)
         temp = S[i-1] + 0.5*delt*(F1 + Fp)
         S[i] = normalizeMat(temp)
-        if(i%10 == 0): print(i, "- norm:",np.linalg.norm(S[i][0])) 
+        # if(i%100 == 0): print(i, "- norm:", np.linalg.norm(S[i][0])) 
     
     return S
 
@@ -44,8 +44,8 @@ def HeunSolver(t, delt, S0, f, parameters, num):
 # -------------- INITIALIZATION -------------- #
 # Initialize a tilted spin
 def initializeOneTiltedSpin():
-    S0x = 0.1 # hva skal jeg sette disse til?
-    S0y = 0.2
+    S0x = 0.3 
+    S0y = 0.3
     S0 = np.array([S0x,S0y,np.sqrt(1-S0x**2-S0y**2)]) # initial spin
     return S0
 
