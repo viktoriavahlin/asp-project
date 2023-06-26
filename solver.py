@@ -45,7 +45,7 @@ def HeunSolver(t, delt, S0, f, parameters, num):
 # Initialize a tilted spin
 def initializeOneTiltedSpin():
     S0x = 0.3 
-    S0y = 0.3
+    S0y = 0.4
     S0 = np.array([S0x,S0y,np.sqrt(1-S0x**2-S0y**2)]) # initial spin
     return S0
 
