@@ -7,7 +7,7 @@ def run(N, parameters):
     '''Simulate N spins'''
     t0 = 0 # start time
     tEnd = 5
-    delt = 0.1
+    delt = 0.05
     timeSteps = int((tEnd-t0)/delt)
     print("timesteps: ", timeSteps)
     t = np.linspace(t0,tEnd,timeSteps)
@@ -19,8 +19,8 @@ def run(N, parameters):
     S0 = initializeSpinGroundStateWave(num)
 
     S_solution = HeunSolver(t, delt, S0, LLG, parameters, num)
-    plotXYZ(S_solution,t)
     animate(S_solution,t,num)
+    plotXYZ(S_solution,t)
 
 
 # ------------------------------------------------------ #
@@ -35,11 +35,10 @@ J = 10 # meV            - Heizenberg coupling constant
 dz = 0.3*J # meV        - Easy axis anisotropy constant
 kBT = 0 # meV, = 0.1J   - Temperature
 muB = 3 # mev, 0.3J     - Homogenous magnetic field μB0(x, t) = μB0 = const. along the z-direction
-alpha = 0.2 #           - Gilbet damping coefficient
-muB = 3 # meV           - Magnetiv field
+alpha = 0.1 #           - Gilbet damping coefficient
 # ------------------------------------------------------ #
 
 # Defining the parameters parameters
 parameters = [J, dz, kBT, muB, gamma, mu, alpha]
-numSpins = 50 # Number of spins to model
+numSpins = 100 # Number of spins to model
 run(numSpins, parameters)
